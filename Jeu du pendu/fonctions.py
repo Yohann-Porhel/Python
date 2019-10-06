@@ -6,6 +6,17 @@ import random
 def choisir_un_mot_aleatoirement():
     return random.choice(donnees.liste_des_mots)
 
+def masquer_mot_a_trouver(mot_choisi):
+    mot_masque = "*"*len(mot_choisi)
+    print("Mot à trouver : "+str(mot_masque))
+    return mot_masque
+
+def valider_saisie_nom():
+    nom_joueur = input("Veuillez saisir votre nom : ")
+    if not nom_joueur:
+        valider_saisie_nom()
+    return nom_joueur
+
 def valider_saisie_utilisateur(lettre_saisie, tentatives_restantes, liste_lettres_saisies):
     lettre_formatee = lettre_saisie.upper()
     if lettre_formatee in ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]:

@@ -3,13 +3,12 @@
 import donnees
 import fonctions
 
-tentatives_restantes = 8
-mot_affiche = str("********")
 liste_lettres_saisies = []
-
+tentatives_restantes = 8
 mot_choisi = fonctions.choisir_un_mot_aleatoirement()
-# pour le debug evidemment
-#print("Le mot à trouver est : "+mot_choisi)
+nom_joueur = fonctions.valider_saisie_nom()
+mot_affiche = fonctions.masquer_mot_a_trouver(mot_choisi)
+
 
 while tentatives_restantes>0:
     lettre_saisie=input("Reste " + str(tentatives_restantes) + " tentative(s). Votre saisie : ")
@@ -18,10 +17,10 @@ while tentatives_restantes>0:
 
     if "*" in mot_affiche:
         if tentatives_restantes>0:
-            print("--------------------------------------------")
+            print("------------------------------------------------------------------------------------------------------------------")
             print("Votre mot : "+str(mot_affiche))
         else:
-            print("PERDU !!! Le mot était : "+str(mot_choisi))
-    else: 
-        print ("BRAVO !!! Vous avez trouvé : "+str(mot_affiche))
+            print("PERDU "+str(nom_joueur)+" !!! Le mot était : "+str(mot_choisi))
+    else:
+        print ("BRAVO "+str(nom_joueur)+" !!! Vous avez trouvé : "+str(mot_choisi))
         break
