@@ -1,6 +1,7 @@
 # -*- coding:utf-8 -*-
 
 import donnees
+import json
 import random
 
 def choisir_un_mot_aleatoirement():
@@ -52,3 +53,8 @@ def verification_lettre_saisie_presente_dans_mot(mot_choisi, saisie_validee, mot
         mot_a_afficher = ''.join(lettres_mot_affiche)
     
     return mot_a_afficher
+
+def enregistrer_score(score):
+
+    with open('scores.json','a') as fichier_scores:
+        json.dump(score, fichier_scores)
